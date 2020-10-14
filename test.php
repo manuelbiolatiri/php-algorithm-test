@@ -1,22 +1,40 @@
 <?php 
 $words = "I am going to school";
 
-function ($words) {
-    $lower = strtolower($words);
-    $arr = array();
-    $one = str_replace("a","e",$lower);
-    $two = str_replace("o","u",$lower);
-    $three = str_replace("p","b",$lower);
-    $four = str_replace("t","d",$lower);
-    $five = str_replace("s","c",$lower);
-    $six = str_replace("j","g",$lower);
-    $seven = str_replace("m","n",$lower);
-    $ar = array($one,$two, $three, $four, $five, $six, $seven);
-    $push = array_push($arr,$ar );
-    return $push;
-    $code = md5($push);
-    return $code;
-}
-     
+    function ($words) {
+        $lower = strtolower($words);
+        $new = array();
+        $array = str_split($lower);
+        $abb =  array('a','o','p','t','s','j','m');
+        $newa = array();
+        foreach ($abb as $arr){
+            if (in_array($arr, $array)){
+            array_push($newa, $arr);
+            }
+        }
+        if (in_array('a', $newa)) {
+            $output  = str_replace('a', 'e', $lower);
+        }
+        if (in_array('o', $newa)) {
+            $output  = str_replace('o', 'u', $output);
+        }
+        if (in_array('p', $newa)) {
+            $output  = str_replace('p', 'b', $output);
+        }
+        if (in_array('t', $newa)) {
+            $output  = str_replace('t', 'd', $output);
+        }
+        if (in_array('s', $newa)) {
+            $output  = str_replace('s', 'c', $output);
+        }
+        if (in_array('j', $newa)) {
+            $output  = str_replace('j', 'g', $output);
+        }
+        if (in_array('m', $newa)) {
+            $output  = str_replace('m', 'n', $output);
+        }
+            $code = md5($output);
+            return $code;
+    }
 
 ?>
