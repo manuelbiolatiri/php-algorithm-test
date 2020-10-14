@@ -1,7 +1,7 @@
 <?php 
 $words = "I am going to school";
 
-    function ($words) {
+    function replaceLetters($words) {
         $lower = strtolower($words);
         $new = array();
         $array = str_split($lower);
